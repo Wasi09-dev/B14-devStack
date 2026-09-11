@@ -9,8 +9,8 @@ const Banner = () => {
 <p>Explore frontend, backend, database, and tooling options,<br></br>
 compare them side by side, and put together the stack that fits your<br></br>
 next project.</p>
-<button>Explore Technologies</button>
-<button>Learn More</button>
+<button className='bg-linear-to-r from-[#f526c8] to-[rgb(96,98,232)] text-white px-[16px] py-[12px] border rounded-2xl mr-2 mt-5 -ml-2 cursor-pointer'>Explore Technologies</button>
+<button className='border-1 px-[15px] py-[5px] cursor-pointer'>Learn More</button>
         </div>
         <div>
             <img src={BannerImage}/>

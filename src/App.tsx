@@ -1,7 +1,9 @@
 
+import { Suspense } from 'react'
 import './App.css'
 import Banner from './assets/components/Banner'
 import Nav from './assets/components/Nav'
+import Explore from './assets/components/Explore'
 
 function App() {
   
@@ -10,6 +12,8 @@ function App() {
     <>
      <Nav/>
      <Banner/>
+     {/* <Suspense fallback>Loading..</Suspense> */}
+     <Explore/>
     </>
   )
 }

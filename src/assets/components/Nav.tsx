@@ -7,7 +7,7 @@ const Nav = () => {
             <img src={Logo} className='w-[180px] h-[50px]' />
 
             <ul className='flex gap-3 items-center'>
-                <li><a href='/'>Home</a></li>
+                <li className='text-pink-500'><a href='/'>Home</a></li>
                 <li><a href='/'>Technoligies</a></li>
                 <li><a href='/'>Projects</a></li>
                 <li><a href='/'>About</a></li>
