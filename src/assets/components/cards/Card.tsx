@@ -1,9 +1,10 @@
 import React, { use } from 'react';
-
-const Card = ({cardPromise}) => {
+ const Card = ({cardPromise,addToStack})=>{
 const cards = use(cardPromise)
-console.log(cards,"cards")
 
+
+
+ }
 
 
     return (

@@ -1,5 +1,5 @@
 
-import { Suspense } from 'react'
+import { Suspense, use, useState } from 'react'
 import './App.css'
 import Banner from './assets/components/Banner'
 import Nav from './assets/components/Nav'
@@ -14,7 +14,13 @@ return data;
 
 function App() {
   const cardPromise = cardFetch()
-
+const [stack,setStack] = useState<any[]>([]);
+const addToStack = (card)=>{
+  const isStack = stack.filter((item)=> item.name === card.name).length>0;
+if(!isStack){
+  setStack([...stack,card]);
+}
+};
   return (
     <>
     {/* <Suspense fallback={<h2>Loading...</h2>}>
@@ -24,7 +30,7 @@ function App() {
      <Banner/>
      <Explore/>
      <Suspense fallback={<h2>Loading...</h2>}>
-       <Card cardPromise={cardPromise}/>
+       <Card cardPromise={cardPromise} addToStack={addToStack}/>
      </Suspense>
 
     </>
