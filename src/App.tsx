@@ -29,6 +29,9 @@ toast.success("Technologies Added")
 const removeAll = ()=> {
   setStack([]);
 };
+const removeOne =(name)=>{
+  setStack(stack.filter((item)=> item.name !== name));
+}
 
   return (
     <>
@@ -44,7 +47,7 @@ const removeAll = ()=> {
        <Card cardPromise={cardPromise} addToStack={addToStack}/>
      </Suspense>
      </div>
- <YourStack stack={stack} removeAll={removeAll}/>
+ <YourStack stack={stack} removeAll={removeAll} removeOne={removeOne}/>
 </div>
 <ToastContainer/>
 <Footer/>
