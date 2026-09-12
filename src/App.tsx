@@ -1,11 +1,13 @@
 
-import { Suspense, use, useState } from 'react'
+import { Suspense,  useState } from 'react'
 import './App.css'
 import Banner from './assets/components/Banner'
 import Nav from './assets/components/Nav'
 import Explore from './assets/components/Explore'
 import Card from './assets/components/cards/Card'
 import YourStack from './assets/components/YourStack'
+import { toast, ToastContainer } from 'react-toastify'
+import Footer from './assets/components/Footer'
 const cardFetch = async()=> {
   const res = await fetch('/data.json');
   const data = await res.json();
@@ -14,12 +16,14 @@ return data;
 
 
 function App() {
-  const cardPromise = cardFetch()
+  // const cardPromise = cardFetch()
+  const [cardPromise] = useState(() => cardFetch());
 const [stack,setStack] = useState<any[]>([]);
 const addToStack = (card)=>{
   const isStack = stack.filter((item)=> item.name === card.name).length>0;
 if(!isStack){
   setStack([...stack,card]);
+toast.success("Technologies Added")
 }
 };
 const removeAll = ()=> {
@@ -42,6 +46,8 @@ const removeAll = ()=> {
      </div>
  <YourStack stack={stack} removeAll={removeAll}/>
 </div>
+<ToastContainer/>
+<Footer/>
     </>
   )
 }
