@@ -5,6 +5,7 @@ import Banner from './assets/components/Banner'
 import Nav from './assets/components/Nav'
 import Explore from './assets/components/Explore'
 import Card from './assets/components/cards/Card'
+import YourStack from './assets/components/YourStack'
 const cardFetch = async()=> {
   const res = await fetch('/data.json');
   const data = await res.json();
@@ -21,6 +22,10 @@ if(!isStack){
   setStack([...stack,card]);
 }
 };
+const removeAll = ()=> {
+  setStack([]);
+};
+
   return (
     <>
     {/* <Suspense fallback={<h2>Loading...</h2>}>
@@ -29,10 +34,14 @@ if(!isStack){
      <Nav/>
      <Banner/>
      <Explore/>
+     <div className='max-w-6xl mx-auto flex gap-5 items-start'>
+     <div className='flex-1'>
      <Suspense fallback={<h2>Loading...</h2>}>
        <Card cardPromise={cardPromise} addToStack={addToStack}/>
      </Suspense>
-
+     </div>
+ <YourStack stack={stack} removeAll={removeAll}/>
+</div>
     </>
   )
 }
